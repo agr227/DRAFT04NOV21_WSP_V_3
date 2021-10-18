@@ -592,8 +592,8 @@ and switched to display: none. Menu button becomes visible.*/
 .gallery-grid {
 	margin-top: 12vh;
 	margin-bottom: 8vh;
-	width: 1439px;
-	min-height: 330vh;
+	width: 98vw;
+	max-height: 330vh;
 	display: grid;
 	grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
 	grid-template-rows: 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 2fr 0.25fr 0.25fr 1.5fr 0.25fr;
