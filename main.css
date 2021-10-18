@@ -593,7 +593,7 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-top: 6vh;
 	margin-bottom: 2vh;
 	width: 100%;
-	min-height: 1200vh;
+	min-height: 960vh;
 	display: grid;
 	grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
 	grid-template-rows: 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 2fr 0.25fr 0.25fr 1.5fr 0.25fr;
