@@ -479,7 +479,7 @@ and switched to display: none. Menu button becomes visible.*/
 	padding-top: 22vh;
 	background-image: linear-gradient(
 		white,
-		rgba(167, 139, 74, 0.37),
+		rgba(167, 139, 74, 0.7),
 		rgba(167, 139, 74),
 		rgba(167, 139, 74, 0.37),
 		rgba(167, 139, 74, 0.25)
@@ -779,13 +779,13 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Lower contact link*/
 .contact-box {
-	width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
+	display: flex;
 }
 
 .contact-box a {
-	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
 	font-size: 2.5vh;
 	text-decoration: none;
 	font-style: italic;
