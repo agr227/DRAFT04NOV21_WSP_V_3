@@ -670,6 +670,7 @@ and switched to display: none. Menu button becomes visible.*/
 	display: flex;
 	position: relative;
 	height: 75vh;
+	min-height: 650px;
 	width: 50vw;
 	background-image: url(images/Alex_1.jpg);
 	background-position: center;
