@@ -940,14 +940,6 @@ footer {
 	justify-content: space-between;
 }
 
-/*Media query to scale and space the social media links with their effects on smaller screens*/
-@media (max-width: 900px) {
-	.f-sociallinks {
-		width: 70% !important;
-		height: 1.5vh;
-	}
-}
-
 .f-sociallinks svg {
 	border-radius: 10px;
 }
@@ -1079,13 +1071,6 @@ footer {
 	transform: scaleX(1);
 }
 
-@media (max-width: 900px) {
-	.f-copy,
-	.f-plug {
-		font-size: 1.75vw;
-	}
-}
-
 .right {
 	padding: 4vh 0 !important;
 	align-items: center;
@@ -1121,7 +1106,17 @@ footer {
 	opacity: 0.65;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
+	.f-sociallinks {
+		width: 70% !important;
+		height: 1.5vh;
+	}
+
+	.f-copy,
+	.f-plug {
+		font-size: 1.75vw;
+	}
+
 	.right {
 		font-size: 2.25vw;
 	}
