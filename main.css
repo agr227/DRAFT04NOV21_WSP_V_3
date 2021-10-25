@@ -784,7 +784,7 @@ and switched to display: none. Menu button becomes visible.*/
 }
 
 .contact-box a {
-	position: absolute;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
