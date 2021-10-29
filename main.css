@@ -4,8 +4,8 @@
 	--accent-200: #d3c6a6;
 	--primary: #a78b4a;
 	--accent-600: #534627;
-	--primary-800: #15120a;
-	--black-100: rgba(0, 0, 0, 0.164);
+	--primary-800: rgb(21, 18, 10);
+	--black-100: #0000002a;
 	--black: #000000;
 
 	font-family: "Barlow", sans-serif;
@@ -21,6 +21,7 @@ simplicity with --white and --primary, but like the idea of using --primary-800 
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	cursor: url(images/Cursor.svg), default;
 }
 
 body {
@@ -56,6 +57,27 @@ header {
 	list-style: none;
 }
 
+.nav-container ul li:nth-child(3) {
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+	font-size: 2.5vw;
+}
+
+.nav-container ul li .link,
+.nav-container ul li .active-link {
+	position: relative;
+	padding: 1px;
+	text-decoration: none;
+	font-size: 1.75vw;
+	color: var(--primary-800);
+}
+
+.nav-container ul li .active-link {
+	font-style: italic;
+	cursor: default !important;
+}
+
 .nav-container .img-container {
 	display: flex;
 	width: 25vw;
@@ -69,20 +91,6 @@ a .img-container img {
 	object-fit: fill;
 }
 
-.nav-container ul li:nth-child(3) {
-	margin-left: auto;
-	margin-right: auto;
-	width: fit-content;
-	font-size: 2.5vw;
-}
-
-.nav-container ul li .link {
-	position: relative;
-	text-decoration: none;
-	font-size: 1.75vw;
-	color: var(--primary-800);
-}
-
 /*Nav link hover animation. Creates a thin background color layer located at the bottom of the link. Upon hover/focus
 the line then scales to full width using the transition listed.*/
 .nav-container ul li .link::before {
@@ -90,29 +98,24 @@ the line then scales to full width using the transition listed.*/
 	position: absolute;
 	display: block;
 	width: 100%;
-	height: 1.5px;
+	height: 1px;
 	bottom: 0;
 	left: 0;
-	background-color: var(--primary);
+	background-image: linear-gradient(
+		to left,
+		var(--white),
+		var(--primary) 5%,
+		var(--primary) 95%,
+		var(--white) 100%
+	);
 	transform: scaleX(0);
-	transition: transform 0.4s ease-in-out 3ms;
+	transition: transform 0.2s ease-in-out 1ms;
 	will-change: transform;
 }
 
 .nav-container ul li .link:focus::before,
 .nav-container ul li .link:hover::before {
 	transform: scaleX(1);
-}
-
-.nav-container ul li .link:active {
-	content: "";
-	position: absolute;
-	display: block;
-	width: 100%;
-	height: 1.5px;
-	bottom: 0;
-	left: 0;
-	background-color: var(--primary);
 }
 
 /*Style for replacement logo. Remove logo from nav bar for expanding side bar and puts it back in the header*/
@@ -145,21 +148,32 @@ nav-container at its initial value. Creates a pop out menu using menu icon at mo
 .nav-toggle-img {
 	position: absolute;
 	display: none;
-	left: 6%;
+	left: 7%;
 	top: 60%;
 	width: fit-content;
-	cursor: pointer;
 }
 
-#nav-toggle:checked ~ .nav-container ul {
-	z-index: 2;
-	top: 100%;
-	height: 43vh;
-	border-bottom: 0.5px solid var(--black);
-	border-right: 0.5px solid var(--black);
-	border-bottom-right-radius: 5px;
-	border-left: 0.5px solid var(--black);
-	border-bottom-left-radius: 5px;
+.nav-toggle-img svg path {
+	transition: fill 400ms ease-in-out;
+	will-change: fill;
+}
+
+input[type="checkbox"]:checked ~ .nav-toggle-img svg path:nth-of-type(1) {
+	fill: rgba(167, 139, 74, 0.75);
+}
+
+input[type="checkbox"]:checked ~ .nav-toggle-img svg path:nth-of-type(2) {
+	fill: var(--primary);
+}
+
+input[type="checkbox"]:checked ~ .nav-toggle-img svg path:nth-of-type(3) {
+	fill: rgba(167, 139, 74, 0.5);
+}
+
+input[type="checkbox"]:checked ~ label ~ .nav-container,
+input[type="checkbox"]:checked ~ label ~ .nav-container > * {
+	z-index: 3;
+	opacity: 1;
 }
 
 /*Media query for mobile screens starting at 800px. Nav-container and all child elements are moved into an absolute position
@@ -168,40 +182,34 @@ and switched to display: none. Menu button becomes visible.*/
 @media (max-width: 800px) {
 	.nav-container {
 		z-index: 1;
-		width: 100%;
-		height: 0;
+		opacity: 0;
+		position: absolute;
+		padding: 0.35vh 0;
+		background: var(--white);
 		overflow: hidden;
-		display: block;
 	}
 
-	.nav-container ul {
-		z-index: 1;
-		position: absolute;
-		display: block;
-		top: 100%;
-		left: 0;
-		height: 0;
-		width: 35%;
-		overflow: hidden;
-		background: var(--white);
-		transform: height;
-		transform-origin: 0%;
-		transition: height 0.5s ease-in-out infinite;
-		will-change: height;
+	.nav-container > * {
+		opacity: 0;
+	}
+
+	.nav-container .nav-container ul {
+		padding: 0;
 	}
 
 	.nav-container ul li {
-		margin-top: 3vh;
-		padding-bottom: 5vh;
-		text-align: left;
+		margin-inline: none !important;
+		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.nav-container ul li a {
+		font-size: 2vw !important;
 	}
 
 	.nav-container ul li:nth-child(3) {
 		display: none;
-	}
-
-	.nav-container ul li .link {
-		font-size: 2.5vw;
 	}
 
 	.nav-toggle-img {
@@ -221,10 +229,8 @@ and switched to display: none. Menu button becomes visible.*/
 	width: 100%;
 	height: auto;
 	padding: 1.5vh 0;
-	border-top: 0.5px solid var(--black);
 	border-bottom: 0.5px solid var(--white);
-	box-shadow: rgba(167, 139, 74, 0.45) 0px 40px 60px -40px,
-		rgba(167, 139, 74, 0.25) 0px 60px 60px -40px;
+	box-shadow: #a78b4a59 0px 40px 60px -40px, #a78b4a26 0px 60px 60px -40px;
 }
 
 .slider-container {
@@ -423,17 +429,17 @@ and switched to display: none. Menu button becomes visible.*/
 /*Sizing home images from desktop to mobile. Switching from flex to vertical stack.*/
 @media (max-width: 1250px) {
 	.slider-container {
-		height: 73vh;
+		height: 60vh;
 	}
 }
 
-@media (max-width: 975px) {
+@media (max-width: 1000px) {
 	.slider-container {
 		height: 50vh;
 	}
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
 	.slider-container {
 		display: block;
 		height: auto;
@@ -476,13 +482,14 @@ and switched to display: none. Menu button becomes visible.*/
 }
 
 .gallery-content {
-	padding-top: 22vh;
+	margin-top: 22vh;
 	background-image: linear-gradient(
-		white,
-		rgba(167, 139, 74, 0.7),
-		rgba(167, 139, 74),
-		rgba(167, 139, 74, 0.37),
-		rgba(167, 139, 74, 0.25)
+		var(--white),
+		#a78b4a1a,
+		#a78b4a5e,
+		var(--primary),
+		#a78b4a5e,
+		#a78b4a40
 	);
 	width: 100%;
 	height: 100%;
@@ -492,7 +499,7 @@ and switched to display: none. Menu button becomes visible.*/
 .random-text-1 {
 	position: relative;
 	padding-left: 3vw;
-	width: 97%;
+	width: 87%;
 	height: auto;
 	border-bottom: 1px solid var(--primary-800);
 	opacity: 0.35;
@@ -608,7 +615,6 @@ and switched to display: none. Menu button becomes visible.*/
 .gallery-grid {
 	padding: 8vh 0;
 	width: 100%;
-	max-height: 3000vh;
 	display: grid;
 	grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
 	grid-template-rows: 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 2fr 0.25fr 0.25fr 1.5fr 0.25fr;
@@ -646,32 +652,28 @@ and switched to display: none. Menu button becomes visible.*/
 	padding: 10vh 0 18vh 0;
 	max-width: 100%;
 	height: auto;
-	background-image: linear-gradient(
-		rgba(167, 139, 74, 0.25),
-		white,
-		white,
-		white,
-		white
-	);
+	background-image: linear-gradient(#a78b4a40, white 25%, white 100%);
 }
 
 .inner-about {
-	border-top: 0.5px solid var(--black);
 	border-right: 0.5px solid var(--black);
 	display: flex;
-	width: 100%;
+	flex: 0 1 auto;
+	width: 95vw;
 	height: auto;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 4vh;
 	padding: 8vh 2vw;
 }
 
 /*Professional Headshot*/
 .left-container {
-	display: flex;
 	position: relative;
+	padding: 0 8vw 0 2vw;
 	height: 75vh;
-	min-height: 650px;
-	width: 50vw;
+	width: 100%;
+	max-width: 600px;
 	background-image: url(images/Alex_1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -686,113 +688,58 @@ and switched to display: none. Menu button becomes visible.*/
 .right-container {
 	position: relative;
 	height: 75vh;
-	width: 50vw;
-	padding: 7% 5%;
+	width: 100%;
+	padding: 5vh 3vw 5vh 5vw;
 	border-right: 0.5px solid var(--black);
 }
 
 .right-container .rt-container {
+	height: 100%;
 	border-right: 0.64px solid var(--black);
-	box-shadow: 50px 0 23px -22px rgba(167, 139, 74, 0.25);
+	box-shadow: 50px 0 23px -22px #a78b4a40;
 }
 
-.right-container h3 {
-	padding-top: 6vh;
+.right-container h2 {
+	padding-top: 3vh;
+}
+
+.right-container h2,
+h3 {
 	font-style: italic;
 	color: var(--primary-800);
 	opacity: 0.75;
 }
 
 .right-container p {
-	padding-right: 5vw;
-	padding-bottom: 11vh;
+	padding-top: 6vh;
+	padding-right: 3vw;
 	font-size: 1.2vw;
 	color: var(--primary-800);
-	opacity: 0.65;
+	opacity: 0.45;
 	line-height: 2.7vh;
 }
 
-.sociallinks {
-	display: flex;
-	padding-right: 18vw;
-	width: 100%;
-	height: fit-content;
-	justify-content: space-evenly;
-}
-
-/*Social link icons and styling*/
-.sociallinks a {
-	display: flex;
-	align-content: center;
-	margin-right: auto;
-}
-
-.sociallinks a svg path {
-	transition-duration: 1s;
-}
-
-.instagram:hover path,
-.instagram:focus path,
-.instagram:focus-within path {
-	/* background: linear-gradient(
-		to top right,
-		rgba(255, 190, 11, 0.65),
-		rgba(251, 86, 7, 0.65),
-		rgba(131, 56, 236, 0.65),
-		rgba(255, 0, 110, 0.65),
-		rgba(255, 0, 110, 0.65)
-	); */
-	fill: var(--primary);
-}
-
-.facebook:hover path,
-.facebook:focus path,
-.facebook:focus-within path {
-	/* background: radial-gradient(
-		rgb(4, 119, 242),
-		rgb(95, 159, 242),
-		rgb(201, 219, 255)
-	); */
-	fill: var(--primary);
-}
-
-.pintrest:hover path,
-.pintrest:focus path,
-.pintrest:focus-within path {
-	/* background: radial-gradient(rgb(204, 68, 75), rgb(204, 68, 75), white); */
-	fill: var(--primary);
-}
-
-.linkedin {
-	padding: 2px;
-}
-
-.linkedin:hover path,
-.linkedin:focus path,
-.linkedin:focus-within path {
-	/* background: radial-gradient(
-		rgb(66, 103, 178),
-		rgb(88, 144, 255),
-		rgb(24, 119, 242)
-	); */
-	fill: var(--primary);
+.right-container h3 {
+	padding-top: 8vh;
+	color: var(--primary);
 }
 
 /*Lower contact link*/
 .contact-box {
 	display: flex;
-}
-
-.contact-box a {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	height: auto;
-	font-size: 2.5vh;
-	text-decoration: none;
+	width: fit-content;
+}
+
+.contact-box a {
+	font-size: 5.5vw;
 	font-style: italic;
+	font-weight: 300;
+	text-decoration: none;
 	color: var(--primary-800);
-	opacity: 0.6;
+	opacity: 0.4;
 	will-change: opacity;
 }
 
@@ -805,9 +752,15 @@ and switched to display: none. Menu button becomes visible.*/
 	height: 1.5px;
 	bottom: 0;
 	left: 0;
-	background-color: var(--primary);
+	background-image: linear-gradient(
+		to left,
+		var(--white),
+		var(--primary) 5%,
+		var(--primary) 95%,
+		var(--white) 100%
+	);
 	transform: scaleX(0);
-	transition: transform 0.5s ease 3ms;
+	transition: transform 0.2s ease-in-out 1ms;
 	will-change: transform;
 }
 
@@ -825,20 +778,21 @@ and switched to display: none. Menu button becomes visible.*/
 @media (max-width: 1000px) {
 	.about-container {
 		padding-bottom: 10vh !important;
+		padding: 0 3vw;
 	}
 
 	.inner-about {
 		position: relative;
 		display: block;
-		width: 98% !important;
+		width: 93vw !important;
 		height: auto;
-		/* margin-bottom: 0 !important; */
 		padding: 2vh 0 !important;
 	}
 
 	.left-container {
-		width: 80vw !important;
+		width: auto !important;
 		height: 50vh !important;
+		min-height: 650px;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 3vh;
@@ -849,42 +803,36 @@ and switched to display: none. Menu button becomes visible.*/
 		flex-direction: row-reverse;
 		width: 80vw !important;
 		height: auto !important;
-		margin-left: auto !important;
+		margin-left: 8vw !important;
 		margin-right: auto !important;
 		padding: 0 2% !important;
 		box-shadow: 50px 0 35px -25px rgba(167, 139, 74, 0.25) !important;
 	}
 
 	.right-container .rt-container {
-		padding: 1% 5% !important;
+		/* padding: 1vh 5vw !important; */
+		margin-left: auto !important;
+		margin-right: auto !important;
 		border: none !important;
 		box-shadow: none !important;
 		margin-top: 2.5vh;
 		margin-bottom: 2.5vh;
 	}
 
-	.right-container h3 {
+	.right-container h2,
+	h3 {
 		opacity: 0.92 !important;
-		padding-top: 2vh !important;
+		padding: 3vh 0 !important;
+		width: fit-content;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 
 	.right-container p {
-		padding: 0 2vw 3vh 0 !important;
+		padding: 0 2vw !important;
 		font-size: 1.85vw !important;
-		opacity: 0.85 !important;
+		opacity: 0.65 !important;
 		line-height: 2.25em !important;
-	}
-
-	.sociallinks {
-		flex-direction: column;
-		width: fit-content !important;
-		height: auto !important;
-		padding-right: 4vw !important;
-	}
-
-	.sociallinks a {
-		display: flex;
-		justify-items: space-evenly;
 	}
 }
 
@@ -892,7 +840,7 @@ and switched to display: none. Menu button becomes visible.*/
 footer {
 	display: flex;
 	width: 100%;
-	height: 26vh;
+	height: 25vh;
 	border-top: 0.5px solid var(--white);
 	box-shadow: rgba(167, 139, 74, 0.45) 0px -20px 70px -40px,
 		rgba(167, 139, 74, 0.25) 0px -40px 70px -40px;
@@ -900,31 +848,28 @@ footer {
 
 .footer-container {
 	display: flex;
-	margin: 1vh 1vw;
+	margin: 1vh 0 2vh 0;
 	border-top: 0.5px solid var(--black);
 	width: 100%;
 	height: 100%;
 }
 
 .footer-container .foot {
-	margin: 0.5vh 0;
+	margin-top: 0.5vh;
 	border-top: 0.5px solid var(--black);
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 
 .left,
-.middle,
 .right {
 	display: flex;
 	flex-direction: column;
-	padding: 2vh 0;
+	padding: 2vh 2vw;
 }
 
 .left {
 	justify-content: space-between;
-	/* padding: 2vh 0; */
-	border-right: 0.5px solid var(--black);
 }
 
 .left img {
@@ -935,15 +880,18 @@ footer {
 
 .f-sociallinks {
 	display: flex;
-	width: 50%;
+	width: 90%;
 	height: auto;
 	margin-left: 1.5vw;
-	align-items: center;
+	padding-right: 30%;
+	align-content: center;
 	justify-content: space-between;
 }
 
 .f-sociallinks svg {
-	border-radius: 10px;
+	height: 30px;
+	width: auto;
+	border-radius: 8px;
 }
 
 .f-sociallinks .f-linkedin {
@@ -1009,117 +957,61 @@ footer {
 	fill: white;
 }
 
-.middle {
-	border-right: 0.5px solid var(--black);
-	justify-content: center;
-	padding-bottom: 1.5vh !important;
-	align-items: center;
-	color: var(--black-800);
-}
-.f-top {
-	margin-bottom: auto;
-	font-size: 1.5vw;
-	font-style: italic;
-	letter-spacing: 0.125em;
-	opacity: 0.9;
+.right > * {
+	margin-top: 1vh;
+	margin-left: auto;
+	margin-right: 5vw;
 }
 
-.f-copy {
-	font-size: 1.15vw;
-	letter-spacing: 0.1em;
-	margin-bottom: 0.5vh;
-	opacity: 0.6;
-}
-
-.f-plug {
-	margin-bottom: 0.5vh;
-	font-size: 0.9vw;
-	letter-spacing: 0.1em;
-}
-
-.f-plug a {
-	position: relative;
-	text-decoration: none;
-	font-style: italic;
-	font-weight: 600;
-	color: var(--black);
-	letter-spacing: normal;
-	opacity: 0.5;
+.right .location {
+	display: flex;
+	width: 28vw;
+	height: 10vh;
+	opacity: 0.45;
 	will-change: opacity;
 }
 
-.f-plug a:hover,
-.f-plug a:focus {
-	opacity: 1;
-}
-
-.f-plug a::before {
-	content: "";
-	position: absolute;
-	display: block;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 0.75px;
-	background-color: var(--primary);
-	transform-origin: center;
-	transform: scaleX(0);
-	transition: transform 0.6s ease-in-out 0.3ms;
-	will-change: transform;
-}
-
-.f-plug a:hover::before,
-.f-plug a:focus::before {
-	transform: scaleX(1);
-}
-
-.right {
-	padding: 4vh 0 !important;
-	align-items: center;
-	line-height: 1.7em;
-	font-size: 1.5vw;
-	color: var(--primary-800);
-}
-
-.right a {
+.right .location a,
+img {
 	display: flex;
 	flex-direction: column;
-	width: 60%;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: inherit;
-	align-items: center;
-	opacity: 0.5;
-	will-change: opacity;
+	margin-left: auto;
+	margin-right: auto;
+	align-self: center;
 }
 
-.right a img {
+.right .location a {
+	margin-top: 2vh;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.right .location img {
 	margin-bottom: 2vh;
 }
 
-.right a:hover,
-.right a:focus {
+.right .location:hover,
+.right .location:focus {
 	opacity: 1;
 }
 
-.right .f-email {
-	margin-top: auto;
-	margin-bottom: 1vh;
-	opacity: 0.65;
+.right .f-copy {
+	margin-top: 7vh;
+	width: 28vw;
+	text-align: center;
 }
 
 @media (max-width: 700px) {
 	.f-sociallinks {
-		width: 70% !important;
-		height: 1.5vh;
+		padding-right: 20% !important;
 	}
 
-	.f-copy,
-	.f-plug {
-		font-size: 1.75vw;
+	.f-copy {
+		font-size: 2vw !important;
 	}
 
 	.right {
-		font-size: 2.25vw;
+		font-size: 2.5vw;
 	}
 }
