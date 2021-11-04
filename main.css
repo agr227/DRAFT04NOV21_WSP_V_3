@@ -4,7 +4,7 @@
 	--accent-200: #d3c6a6;
 	--primary: #a78b4a;
 	--accent-600: #534627;
-	--primary-800: rgb(21, 18, 10);
+	--primary-800: #15120a;
 	--black-100: #0000002a;
 	--black: #000000;
 
@@ -21,15 +21,11 @@ simplicity with --white and --primary, but like the idea of using --primary-800 
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	cursor: url(images/Cursor.svg), default;
 }
 
 body {
 	height: 100vh;
 	width: auto;
-	/* max-width: 1800px;
-	margin-left: auto;
-	margin-right: auto; */
 }
 
 header {
@@ -74,18 +70,19 @@ header {
 	text-decoration: none;
 	font-size: 1.75vw;
 	color: var(--primary-800);
+	cursor: url(images/Cursor.svg), default;
 }
 
-.nav-container ul li .active-link {
-	font-style: italic;
+/* .nav-container ul li .active-link {
 	cursor: default !important;
-}
+} Only needed for Secondary Pages, when an active link is permanently styled*/
 
 .nav-container .img-container {
 	display: flex;
 	width: 25vw;
 	height: auto;
 	overflow: visible;
+	cursor: url(images/Cursor.svg), default;
 }
 
 a .img-container img {
@@ -117,9 +114,29 @@ the line then scales to full width using the transition listed.*/
 }
 
 .nav-container ul li .link:focus::before,
+.nav-container ul li .link:focus-within::before,
 .nav-container ul li .link:hover::before {
 	transform: scaleX(1);
 }
+
+/* .nav-container ul li .active-link::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 1px;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(
+		to left,
+		var(--white),
+		var(--primary-800) 10%,
+		var(--primary-800) 90%,
+		var(--white) 100%
+	);
+
+	
+} Only needed for Secondary Pages, when an active link is permanently styled*/
 
 /*Style for replacement logo. Remove logo from nav bar for expanding side bar and puts it back in the header*/
 .logo-small-link {
@@ -654,22 +671,23 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Begin About Me preview*/
 .about-container {
-	padding: 10vh 0 18vh 0;
+	padding-top: 10vh;
+	padding-bottom: 18vh;
 	max-width: 100%;
 	height: auto;
 	background-image: linear-gradient(#a78b4a40, white 25%, white 100%);
 }
 
 .inner-about {
-	border-right: 0.5px solid var(--black);
-	display: flex;
-	flex: 0 1 auto;
-	width: 95vw;
-	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 4vh;
 	padding: 8vh 2vw;
+	display: flex;
+	flex: 0 1 auto;
+	width: 95vw;
+	height: auto;
+	border-right: 0.5px solid var(--black);
 }
 
 /*Professional Headshot*/
@@ -692,9 +710,9 @@ and switched to display: none. Menu button becomes visible.*/
 /*Short summary*/
 .right-container {
 	position: relative;
+	padding: 5vh 3vw 5vh 5vw;
 	height: 75vh;
 	width: 100%;
-	padding: 5vh 3vw 5vh 5vw;
 	border-right: 0.5px solid var(--black);
 }
 
@@ -712,28 +730,29 @@ and switched to display: none. Menu button becomes visible.*/
 h3 {
 	font-style: italic;
 	color: var(--primary-800);
-	opacity: 0.75;
+	opacity: 0.65;
 }
 
 .right-container p {
 	padding-top: 6vh;
 	padding-right: 3vw;
 	font-size: 1.2vw;
+	line-height: 2.7vh;
 	color: var(--primary-800);
 	opacity: 0.45;
-	line-height: 2.7vh;
 }
 
 .right-container h3 {
 	padding-top: 8vh;
 	color: var(--primary);
+	will-change: opacity;
 }
 
 .right-container h3 a {
 	position: relative;
 	text-decoration: none;
 	color: inherit;
-	will-change: opacity;
+	cursor: url(images/Cursor.svg), default;
 }
 
 /*Contact link hover animations*/
@@ -741,10 +760,10 @@ h3 {
 	content: "";
 	position: absolute;
 	display: block;
-	width: 100%;
-	height: 1.5px;
 	bottom: -5px;
 	left: 0;
+	width: 100%;
+	height: 1.5px;
 	background-image: linear-gradient(
 		to left,
 		var(--white),
@@ -758,93 +777,76 @@ h3 {
 }
 
 .right-container h3 a:hover::before,
-.right-container h3 a:focus::before {
+.right-container h3 a:focus::before,
+.right-container h3 a:focus-within::before {
 	transform: scaleX(1);
 }
 
-.right-container h3 a:hover,
-.right-container h3 a:focus {
-	opacity: 1;
+.right-container h3:hover,
+.right-container h3:focus,
+.right-container h3:focus-within {
+	opacity: 0.85;
 }
-
-/*Lower contact link*/
-/* .contact-box {
-	display: flex;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	width: fit-content;
-}
-
-.contact-box a {
-	font-size: 5.5vw;
-	font-style: italic;
-	font-weight: 300;
-	text-decoration: none;
-	color: var(--primary-800);
-	opacity: 0.4;
-	will-change: opacity;
-} */
 
 /*Media Query to reformat the about me section during resizing and smaller screens*/
 @media (max-width: 1000px) {
 	.about-container {
-		padding-bottom: 10vh !important;
 		padding: 0 3vw;
+		padding-bottom: 10vh !important;
 	}
 
 	.inner-about {
+		padding: 2vh 0 !important;
 		position: relative;
 		display: block;
 		width: 93vw !important;
 		height: auto;
-		padding: 2vh 0 !important;
 	}
 
 	.left-container {
-		width: auto !important;
-		height: 50vh !important;
-		min-height: 650px;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 3vh;
+		width: auto !important;
+		height: 50vh !important;
+		min-height: 650px;
 	}
 
 	.right-container {
+		margin-left: 8vw !important;
+		margin-right: auto !important;
+		padding: 0 2% !important;
 		display: flex;
 		flex-direction: row-reverse;
 		width: 80vw !important;
 		height: auto !important;
-		margin-left: 8vw !important;
-		margin-right: auto !important;
-		padding: 0 2% !important;
 		box-shadow: 50px 0 35px -25px rgba(167, 139, 74, 0.25) !important;
 	}
 
 	.right-container .rt-container {
-		/* padding: 1vh 5vw !important; */
+		/* margin: 2.5vh auto; Try this to simplify? */
+		margin-top: 2.5vh;
+		margin-bottom: 2.5vh;
 		margin-left: auto !important;
 		margin-right: auto !important;
 		border: none !important;
 		box-shadow: none !important;
-		margin-top: 2.5vh;
-		margin-bottom: 2.5vh;
 	}
 
 	.right-container h2,
 	h3 {
-		opacity: 0.92 !important;
-		padding: 3vh 0 !important;
-		width: fit-content;
 		margin-left: auto !important;
 		margin-right: auto !important;
+		padding: 3vh 0 !important;
+		width: fit-content;
+		opacity: 0.92 !important;
 	}
 
 	.right-container p {
 		padding: 0 2vw !important;
 		font-size: 1.85vw !important;
-		opacity: 0.65 !important;
 		line-height: 2.25em !important;
+		opacity: 0.65 !important;
 	}
 }
 
@@ -859,25 +861,26 @@ footer {
 }
 
 .footer-container {
+	margin-top: 1vh;
+	margin-bottom: 2vh;
 	display: flex;
-	margin: 1vh 0 2vh 0;
-	border-top: 0.5px solid var(--black);
 	width: 100%;
 	height: 100%;
+	border-top: 0.5px solid var(--black);
 }
 
 .footer-container .foot {
 	margin-top: 0.5vh;
-	border-top: 0.5px solid var(--black);
 	width: 100%;
 	height: auto;
+	border-top: 0.5px solid var(--black);
 }
 
 .left,
 .right {
+	padding: 2vh 2vw;
 	display: flex;
 	flex-direction: column;
-	padding: 2vh 2vw;
 }
 
 .left {
@@ -891,19 +894,21 @@ footer {
 }
 
 .f-sociallinks {
-	display: flex;
-	width: 90%;
-	height: auto;
 	margin-left: 1.5vw;
 	padding-right: 30%;
+	display: flex;
 	align-content: center;
 	justify-content: space-between;
+	width: 90%;
+	height: auto;
+	cursor: url(images/Cursor.svg), default;
 }
 
 .f-sociallinks svg {
 	height: 30px;
 	width: auto;
 	border-radius: 8px;
+	cursor: url(images/Cursor.svg), default;
 }
 
 .f-sociallinks .f-linkedin {
@@ -911,7 +916,9 @@ footer {
 }
 
 .f-sociallinks a svg path {
-	transition-duration: 0.9s;
+	transition-duration: 0.25s;
+	transition-delay: 0s;
+	will-change: fill;
 }
 
 .f-instagram:hover,
@@ -929,6 +936,7 @@ footer {
 		rgba(255, 0, 110, 0.65)
 	);
 	fill: white;
+	transition-delay: 0s;
 }
 
 .f-facebook:hover,
@@ -943,6 +951,7 @@ footer {
 		rgb(201, 219, 255)
 	);
 	fill: white;
+	transition-delay: 0s;
 }
 
 .f-pintrest:hover,
@@ -953,6 +962,7 @@ footer {
 .f-pintrest:focus-within path {
 	background: radial-gradient(rgb(204, 68, 75), rgb(204, 68, 75), white);
 	fill: white;
+	transition-delay: 0s;
 }
 
 .f-linkedin:hover,
@@ -967,6 +977,7 @@ footer {
 		rgb(24, 119, 242)
 	);
 	fill: white;
+	transition-delay: 0s;
 }
 
 .right > * {
@@ -980,7 +991,9 @@ footer {
 	width: 28vw;
 	height: 10vh;
 	opacity: 0.45;
+	transition: opacity 0.5s ease 0.5s;
 	will-change: opacity;
+	cursor: url(images/Cursor.svg), default;
 }
 
 .right .location a,
@@ -990,6 +1003,7 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	align-self: center;
+	cursor: url(images/Cursor.svg), default;
 }
 
 .right .location a {
@@ -1005,8 +1019,10 @@ img {
 }
 
 .right .location:hover,
-.right .location:focus {
+.right .location:focus,
+.right .location:focus-within {
 	opacity: 1;
+	transition-delay: 0s;
 }
 
 .right .f-copy {
@@ -1028,3 +1044,5 @@ img {
 		font-size: 2.5vw;
 	}
 }
+
+/*END PAGE*/
