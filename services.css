@@ -169,6 +169,7 @@ nav-container at its initial value. Creates a pop out menu using menu icon at mo
 	left: 7%;
 	top: 60%;
 	width: fit-content;
+	cursor: url(images/Cursor.svg), default;
 }
 
 .nav-toggle-img svg path {
@@ -803,6 +804,7 @@ footer {
 	width: 28vw;
 	height: 10vh;
 	opacity: 0.45;
+	transition: opacity 0.5s ease 0.5s;
 	will-change: opacity;
 	cursor: url(images/Cursor.svg), default;
 }
