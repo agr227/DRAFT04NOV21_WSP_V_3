@@ -26,7 +26,6 @@ simplicity with --white and --primary, but like the idea of using --primary-800 
 body {
 	margin-left: auto;
 	margin-right: auto;
-	height: 100vh;
 	width: auto;
 }
 
@@ -246,13 +245,12 @@ and switched to display: none. Menu button becomes visible.*/
 /*Begin Main design and style*/
 .container {
 	margin-top: 10vh;
-	margin-bottom: 10vh;
+	margin-bottom: 20vh;
 	margin-left: auto;
 	margin-right: auto;
 	width: 92vw;
 	max-width: 1350px;
 	height: auto;
-	border-right: 1px solid #15120a77;
 	box-shadow: rgba(167, 139, 74, 0.45) 45px 0px 45px -40px;
 }
 
@@ -260,15 +258,15 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1350px;
-	flex-grow: 0;
 }
 
 .p1-container {
-	margin-bottom: 15vh;
+	margin-bottom: 10vh;
 	padding-bottom: 1vh;
 	width: 100%;
 	height: auto;
-	border-bottom: 1px solid #15120a77;
+
+	box-shadow: rgba(167, 139, 74, 0.45) 0px 45px 45px -40px;
 }
 
 .alex-cont {
@@ -315,7 +313,7 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-top: 1%;
 	margin-bottom: 10vh;
 	padding-bottom: 1vh;
-	border-bottom: 1px solid #15120a77;
+	box-shadow: rgba(167, 139, 74, 0.45) 0px 45px 45px -40px;
 }
 
 .p2,
@@ -387,9 +385,10 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-right: auto;
 	margin-bottom: 10vh;
 	padding-bottom: 1vh;
+	overflow: auto;
 	width: 85%;
-	height: auto;
-	border-bottom: 1px solid #15120a77;
+	height: fit-content;
+	box-shadow: rgba(167, 139, 74, 0.45) 0px 45px 45px -40px;
 }
 
 .stance-cont {
@@ -412,9 +411,9 @@ and switched to display: none. Menu button becomes visible.*/
 	float: right;
 	padding: 0 2%;
 	width: 35%;
+	height: auto;
 	align-items: center;
 	text-align: center;
-	height: auto;
 	font-size: 1rem;
 	line-height: 3vh;
 	color: var(--primary-800);
@@ -425,11 +424,11 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
-	height: fit-content;
+	height: auto;
 }
 
 .p4 {
-	padding: 3vh 3vw;
+	padding: 0vh 3vw;
 	width: 100%;
 	height: auto;
 	text-align: center;
@@ -477,6 +476,7 @@ and switched to display: none. Menu button becomes visible.*/
 	}
 
 	.container div p {
+		display: block;
 		font-size: 0.85rem;
 		text-align: center;
 	}
@@ -486,13 +486,13 @@ and switched to display: none. Menu button becomes visible.*/
 	.p2-2,
 	.p3,
 	.p4 {
+		display: block;
 		padding: 0 3%;
 	}
 
 	.p1-container {
 		margin-bottom: 5vh;
 		width: 100%;
-		border-bottom: 1px solid #15120a33;
 	}
 
 	.p2-container,
@@ -502,7 +502,6 @@ and switched to display: none. Menu button becomes visible.*/
 
 	.p2-2-container {
 		margin-bottom: 5vh;
-		border-bottom: 1px solid #15120a33;
 	}
 
 	.mount-cont {
@@ -511,14 +510,14 @@ and switched to display: none. Menu button becomes visible.*/
 
 	.p3-container {
 		width: 100%;
+	}
+
+	.stance-cont {
 		height: auto;
-		border-bottom: none;
 	}
 
 	.p3 {
-		margin-bottom: 5vh;
 		padding: 2% 1%;
-		border-bottom: 1px solid #15120a77;
 	}
 
 	.p4-container {
