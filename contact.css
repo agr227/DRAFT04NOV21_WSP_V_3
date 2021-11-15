@@ -243,11 +243,12 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Begin Main design and style*/
 main {
-	margin: 5vh 0 50vh 0;
-	padding: 3vh 3vw 0 2vw;
-	width: 60vw;
+	margin: 5vh auto 50vh auto;
+	padding: 3vh 1vw 0 5vw;
+	width: 70vw;
 	height: 95%;
-	border-right: 0.5px solid rgba(167, 139, 74, 0.45);
+	border-top: 0.5px solid var(--primary-800);
+	border-right: 0.5px solid var(--primary-800);
 }
 
 h1 {
@@ -269,8 +270,10 @@ h1 {
 	line-height: 2vh;
 	text-align: left;
 	color: var(--primary-800);
-	opacity: 0.65;
-	border-right: 0.5px solid rgba(167, 139, 74, 0.65);
+	border-top: 0.5px solid var(--primary-800);
+	border-right: 0.5px solid var(--primary-800);
+	box-shadow: rgba(167, 139, 74, 0.5) 40px 0px 25px -30px;
+	opacity: 0.5;
 }
 
 .location-top,
@@ -281,9 +284,9 @@ h1 {
 
 .location-top {
 	margin-bottom: 5vh;
+	padding-bottom: 3vh;
 	padding-right: 6vw;
-	border-right: 0.5px solid var(--primary);
-	border-bottom: 0.5px solid var(--primary);
+	box-shadow: rgba(167, 139, 74, 0.5) 0px 40px 25px -35px;
 }
 
 .location-top h2 {
@@ -367,10 +370,12 @@ h1 {
 	transform: scaleY(1);
 }
 
+.bottom-cont {
+	box-shadow: rgba(167, 139, 74, 0.5) 0px -40px 25px -35px;
+}
+
 .contact {
 	padding: 3vh 2vw 3vh 0;
-	border-right: 0.5px solid var(--primary);
-	border-top: 0.5px solid var(--primary);
 }
 
 .contact .insta,
@@ -493,7 +498,6 @@ h1 {
 .contact .email p {
 	width: fit-content;
 	font-size: 0.9rem;
-	border: 1px solid blue;
 }
 
 .message {
@@ -502,7 +506,6 @@ h1 {
 	text-align: left;
 	font-size: 0.85rem;
 	line-height: 2vh;
-	border-right: 0.5px solid var(--primary);
 }
 
 .message p {
@@ -515,7 +518,7 @@ h1 {
 
 @media (max-width: 800px) {
 	main {
-		margin: 0 8vw 50vh 12vw;
+		margin: 10vh 8vw 50vh 12vw;
 		width: 76vw;
 		height: 95%;
 	}

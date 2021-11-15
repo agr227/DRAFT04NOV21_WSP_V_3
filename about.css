@@ -461,13 +461,13 @@ and switched to display: none. Menu button becomes visible.*/
 @media (max-width: 1000px) {
 	.container {
 		padding: 0 1%;
-		width: 85vw;
+		width: 90vw;
 	}
 
 	.container div {
 		display: block;
-		padding-left: 2%;
-		padding-right: 2%;
+		padding-left: 5%;
+		padding-right: 5%;
 		padding-bottom: 1vh !important;
 	}
 
