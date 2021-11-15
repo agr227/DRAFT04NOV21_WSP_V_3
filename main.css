@@ -517,28 +517,22 @@ and switched to display: none. Menu button becomes visible.*/
 }
 
 /*First attention grabbing headline*/
-.random-text-1 {
+/* .random-text-1 {
 	position: relative;
-	padding-left: 3vw;
+	padding-left: 3%;
 	width: fit-content;
 	height: auto;
 	border-bottom: 1px solid var(--primary-800);
-	opacity: 0.35;
-}
+	opacity: 0.5;
+} */
 
-.random-text-1 h1 {
-	padding-right: 5%;
+/* .random-text-1 h1 {
+	padding-right: 1%;
 	padding-bottom: 0.5vh;
 	font-style: italic;
-	font-size: 1.5vh;
+	font-size: 1.5rem;
 	color: var(--primary-800);
-}
-
-@media (max-width: 1000px) {
-	.random-text-1 h1 {
-		font-size: 1.5vh;
-	}
-}
+} */
 
 /*Grid layout and design. 21 grid areas. 1 per picture. I used a grid generator to help me place and design the layout to match the mix of landscapes and portraits. Had to break it down into very small fractions to avoid obvious ratio distortion. Very pleased with the outcome, but would like to keep adding to the UI/UX of this massive piece of the landing page.*/
 .gp1 {
@@ -638,6 +632,7 @@ and switched to display: none. Menu button becomes visible.*/
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	cursor: default !important;
 }
 
 .gallery-grid {
