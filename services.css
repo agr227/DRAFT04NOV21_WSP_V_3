@@ -621,10 +621,11 @@ main {
 	width: 50vw !important;
 	min-width: 400px;
 	max-width: 728px !important;
+	height: fit-content !important;
 	background: var(--white);
-	box-shadow: green 0px 0px 0px 3px inset, var(--white) -15px 15px 0px -3px,
-		red -15px 15px, var(--white) -30px 30px 0px -3px, green -30px 30px;
-	/* If she doesn't like the changing holiday themed color idea, revert to these variables: var(--primary-800) #15120a58 var(--black-100)*/
+	box-shadow: var(--primary-800) 0px 0px 0px 3px inset,
+		var(--white) -15px 15px 0px -3px, #15120a58 -15px 15px,
+		var(--white) -30px 30px 0px -3px, var(--black-100) -30px 30px;
 }
 
 .seasonal h2 {
