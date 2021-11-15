@@ -260,8 +260,8 @@ main {
 	text-align: center;
 	color: var(--primary-800);
 	opacity: 0.6;
-	box-shadow: rgba(0, 0, 0, 0.45) 0px -25px 23px -30px,
-		rgba(0, 0, 0, 0.45) 0px 25px 23px -30px;
+	box-shadow: rgba(167, 139, 74, 0.5) 0px -40px 30px -35px,
+		rgba(167, 139, 74, 0.5) 0px 40px 30px -35px;
 }
 
 .extras p {
@@ -288,8 +288,8 @@ main {
 	background-image: linear-gradient(
 		to left,
 		var(--white),
-		var(--primary) 10%,
-		var(--primary) 90%,
+		var(--primary-800) 10%,
+		var(--primary-800) 90%,
 		var(--white) 100%
 	);
 }
@@ -326,6 +326,7 @@ main {
 	max-width: 1300px;
 	border-top: 0.5px solid var(--primary-800);
 	border-right: 0.5px solid var(--primary-800);
+	box-shadow: rgba(167, 139, 74, 0.45) 40px 10px 23px -35px;
 }
 
 .services-container::after {
@@ -337,6 +338,7 @@ main {
 	height: 97%;
 	width: 95%;
 	border-top: 0.5px solid var(--primary-800);
+	box-shadow: rgba(167, 139, 74, 0.45) -15px -30px 13px -29px;
 	border-right: 0.5px solid var(--primary-800);
 	z-index: -1;
 }
@@ -422,7 +424,7 @@ main {
 }
 
 .services-container div:nth-child(odd) > .srvc-img {
-	width: 125%;
+	width: 135%;
 }
 
 .services-container div:nth-child(even) > .srvc-img {
@@ -431,7 +433,7 @@ main {
 
 .services-container div .srvc-img > img {
 	position: relative;
-	display: block;
+	display: flex;
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
@@ -516,12 +518,12 @@ main {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	font-size: 2vh;
+	font-size: 1.5vh;
 	text-align: center;
 	line-height: 3.5vh;
 	word-spacing: 0.3vw;
 	color: var(--primary-800);
-	opacity: 0.6;
+	opacity: 0.4;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
@@ -531,10 +533,14 @@ main {
 	width: 75%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.services-container {
 		position: relative;
-		width: 70vw;
+		width: 80vw;
+	}
+
+	.services-container::after {
+		box-shadow: rgba(167, 139, 74, 0.45) 5px -30px 13px -29px;
 	}
 
 	.services-container > div {
@@ -543,7 +549,7 @@ main {
 		flex-direction: column-reverse;
 		justify-content: space-around;
 		align-content: space-between;
-		max-height: 40vh;
+		height: 35vh;
 	}
 
 	.services-container > div::before {
@@ -555,9 +561,14 @@ main {
 	}
 
 	.services-container .srvc-title {
-		margin-top: 5vh;
-		padding-bottom: 1vh;
-		height: 5vh;
+		margin-top: 2vh;
+		margin-bottom: 0;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 0;
+		position: relative;
+		width: fit-content;
+		height: fit-content;
 		align-items: center;
 		font-size: 3vw;
 	}
@@ -591,6 +602,8 @@ main {
 	}
 
 	.services-container div .srvc-img {
+		margin-top: 0;
+		margin-bottom: 0;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -609,58 +622,51 @@ main {
 	}
 
 	.srvc-text {
-		font-size: 2vw;
+		font-size: 1.75vw;
 		line-height: 2.25vh;
 	}
 }
 
 .seasonal {
 	margin-top: 18vh;
-	padding: 4vh 10vw 4vh 5vw;
+	padding: 4vh 5vw 8vh 5vw;
 	display: block !important;
-	width: 50vw !important;
-	min-width: 400px;
+	width: 75% !important;
+	min-width: 350px;
 	max-width: 728px !important;
 	height: fit-content !important;
 	background: var(--white);
-	box-shadow: var(--primary-800) 0px 0px 0px 3px inset,
-		var(--white) -15px 15px 0px -3px, #15120a58 -15px 15px,
-		var(--white) -30px 30px 0px -3px, var(--black-100) -30px 30px;
+	color: var(--primary-800);
+	box-shadow: rgba(167, 139, 74, 0.1) 0px 1px 1px 0px inset,
+		rgba(167, 139, 74, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .seasonal h2 {
+	color: var(--primary-800);
 	font-style: italic;
-	font-weight: 800;
 }
 
 .seasonal p {
 	margin-top: 2vh;
-	font-size: 1.5vh;
+	font-size: 1rem;
 	line-height: 3vh;
-	opacity: 0.6;
-}
-
-@media (max-width: 950px) {
-	.seasonal {
-		padding-right: 8vw;
-	}
-
-	.seasonal p {
-		margin-top: 2.5vh;
-		font-size: 1.65vw;
-		line-height: 2.2vh;
-	}
+	opacity: 0.5;
 }
 
 @media (max-width: 700px) {
 	.seasonal {
-		padding-right: 12vw;
+		margin-top: 8vh;
+	}
+
+	.seasonal h2 {
+		font-size: 20px;
 	}
 
 	.seasonal p {
 		margin-top: 2.6vh;
-		font-size: 2vw;
-		line-height: 2vh;
+		font-size: 0.8rem;
+		line-height: 2.3vh;
 	}
 }
 

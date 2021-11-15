@@ -24,6 +24,8 @@ simplicity with --white and --primary, but like the idea of using --primary-800 
 }
 
 body {
+	margin-left: auto;
+	margin-right: auto;
 	height: 100vh;
 	width: auto;
 }
@@ -244,17 +246,21 @@ and switched to display: none. Menu button becomes visible.*/
 /*Begin Main design and style*/
 .container {
 	margin-top: 10vh;
-	margin-bottom: 7vh;
+	margin-bottom: 10vh;
 	margin-left: auto;
 	margin-right: auto;
 	width: 92vw;
+	max-width: 1350px;
 	height: auto;
 	border-right: 1px solid #15120a77;
+	box-shadow: rgba(167, 139, 74, 0.45) 45px 0px 45px -40px;
 }
 
 .container > * {
 	margin-left: auto;
 	margin-right: auto;
+	max-width: 1350px;
+	flex-grow: 0;
 }
 
 .p1-container {
@@ -270,7 +276,7 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-bottom: 3vh;
 	margin-left: auto;
 	margin-right: auto;
-	width: 75vw;
+	width: 60%;
 	height: auto;
 }
 
@@ -278,28 +284,35 @@ and switched to display: none. Menu button becomes visible.*/
 	width: 100%;
 	object-fit: cover;
 	cursor: default !important;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 10px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px -10px 60px -30px;
 }
 
 .p1 {
+	margin-left: auto;
+	margin-right: auto;
 	padding: 0 5vw;
-	font-size: 1.2rem;
-	text-align: justify;
+	width: 75%;
+	font-size: 1rem;
+	text-align: center;
 	line-height: 3vh;
 	color: var(--primary-800);
-	opacity: 0.75;
+	opacity: 0.5;
 }
 
 .p2-container,
 .p2-2-container {
 	margin-left: auto;
 	margin-right: auto;
+	padding: 0 5%;
 	overflow: auto;
-	width: 80vw;
+	width: 90%;
 	height: fit-content;
 }
 
 .p2-2-container {
-	margin-top: 0.5vh;
+	margin-top: 1%;
 	margin-bottom: 10vh;
 	padding-bottom: 1vh;
 	border-bottom: 1px solid #15120a77;
@@ -308,43 +321,54 @@ and switched to display: none. Menu button becomes visible.*/
 .p2,
 .p2-2 {
 	display: flex;
-	padding: 0 2vw;
-	width: 35vw;
+	padding: 1% 1%;
+	width: 49%;
 	height: auto;
-	text-align: justify;
-	font-size: 1.2rem;
+	text-align: center;
+	font-size: 1rem;
 	line-height: 3vh;
 	color: var(--primary-800);
-	opacity: 0.75;
+	opacity: 0.5;
 }
 
 .mount-cont {
 	display: flex;
 	float: left;
-	margin-right: 1vw;
-	width: 42vw;
-	height: auto;
+	margin-right: 0.5%;
+	width: 50%;
+	height: 100%;
 }
 
 .mount-cont img {
 	width: 100%;
 	object-fit: cover;
-	object-position: center;
 	cursor: default !important;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 10px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px -10px 60px -30px;
 }
 
 @media (max-width: 1250px) {
 	.mount-cont {
-		margin-top: 10%;
+		width: 50%;
+		margin: 5% 0;
+	}
+
+	.p2,
+	.p2-2 {
+		font-size: 0.8rem;
+	}
+
+	.dv-cont {
+		width: 35%;
 	}
 }
 
 .dv-cont {
 	display: flex;
-	margin-left: 1vw;
+	margin-left: 0.5%;
 	float: right;
-	clear: left;
-	width: 42vw;
+	width: 50%;
 	height: fit-content;
 }
 
@@ -352,19 +376,24 @@ and switched to display: none. Menu button becomes visible.*/
 	width: 100%;
 	object-fit: cover;
 	cursor: default !important;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 10px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px -10px 60px -30px;
 }
 
 .p3-container {
 	display: flex;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 10vh;
 	padding-bottom: 1vh;
-	width: 100%;
-	height: fit-content;
+	width: 85%;
+	height: auto;
 	border-bottom: 1px solid #15120a77;
 }
 
 .stance-cont {
-	width: 68vw;
+	width: 65%;
 	height: auto;
 }
 
@@ -373,39 +402,41 @@ and switched to display: none. Menu button becomes visible.*/
 	height: auto;
 	object-fit: cover;
 	cursor: default !important;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 10px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px -10px 60px -30px;
 }
 
 .p3 {
 	display: flex;
 	float: right;
-	padding: 0 3vw;
-	width: 30vh;
+	padding: 0 2%;
+	width: 35%;
 	align-items: center;
-	text-align: justify;
+	text-align: center;
 	height: auto;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	line-height: 3vh;
 	color: var(--primary-800);
-	opacity: 0.75;
+	opacity: 0.5;
 }
 
 .p4-container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80vw;
+	width: 70%;
 	height: fit-content;
-	border-bottom: 1px solid #15120a77;
 }
 
 .p4 {
 	padding: 3vh 3vw;
 	width: 100%;
 	height: auto;
-	text-align: justify;
-	font-size: 1.2rem;
+	text-align: center;
+	font-size: 1rem;
 	line-height: 3vh;
 	color: var(--primary-800);
-	opacity: 0.75;
+	opacity: 0.5;
 }
 
 .ys-cont {
@@ -413,7 +444,7 @@ and switched to display: none. Menu button becomes visible.*/
 	margin-bottom: 1vh;
 	margin-left: auto;
 	margin-right: auto;
-	width: 70vw;
+	width: 65%;
 	height: fit-content;
 }
 
@@ -422,25 +453,32 @@ and switched to display: none. Menu button becomes visible.*/
 	height: auto;
 	object-fit: cover;
 	cursor: default !important;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 10px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px -10px 60px -30px;
 }
 
 @media (max-width: 1000px) {
 	.container {
-		width: 80vw;
+		padding: 0 1%;
+		width: 85vw;
 	}
 
 	.container div {
 		display: block;
-		padding-bottom: 3vh !important;
+		padding-left: 2%;
+		padding-right: 2%;
+		padding-bottom: 1vh !important;
 	}
 
 	.container div * {
+		display: block;
 		width: 100% !important;
 	}
 
 	.container div p {
-		font-size: 1rem;
-		text-align: justify;
+		font-size: 0.85rem;
+		text-align: center;
 	}
 
 	.p1,
@@ -448,17 +486,23 @@ and switched to display: none. Menu button becomes visible.*/
 	.p2-2,
 	.p3,
 	.p4 {
-		padding: 0 10vw;
+		padding: 0 3%;
 	}
 
 	.p1-container {
-		margin-bottom: inherit;
+		margin-bottom: 5vh;
+		width: 100%;
+		border-bottom: 1px solid #15120a33;
 	}
 
 	.p2-container,
 	.p2-2-container {
-		height: fit-content;
-		max-height: none;
+		width: 100%;
+	}
+
+	.p2-2-container {
+		margin-bottom: 5vh;
+		border-bottom: 1px solid #15120a33;
 	}
 
 	.mount-cont {
@@ -466,24 +510,24 @@ and switched to display: none. Menu button becomes visible.*/
 	}
 
 	.p3-container {
+		width: 100%;
+		height: auto;
 		border-bottom: none;
 	}
 
-	.stance-cont {
-		height: max-content;
-	}
-
 	.p3 {
-		padding-bottom: 1vh;
+		margin-bottom: 5vh;
+		padding: 2% 1%;
 		border-bottom: 1px solid #15120a77;
 	}
 
 	.p4-container {
+		width: 100%;
 		border-bottom: none;
 	}
 
 	.ys-cont {
-		margin-top: 1vh;
+		margin-top: 5%;
 	}
 }
 
