@@ -261,7 +261,7 @@ main {
 	margin-top: 10vh;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 3vh 4vw 1vh 4vw;
+	padding: 2vh 6vw;
 	position: relative;
 	height: auto;
 	width: 58vw;
@@ -274,14 +274,15 @@ main {
 }
 
 .extras p {
-	margin-bottom: 1.5vh;
+	margin-bottom: 0.5vh;
 	font-size: 0.9rem;
+	line-height: 1.5rem;
 }
 
-.extras p:nth-child(3) {
+/* .extras p:nth-child(3) {
 	margin-bottom: 0;
 	padding-bottom: 2vh;
-}
+} */
 
 @media (max-width: 900px) {
 	.extras {
@@ -289,6 +290,8 @@ main {
 	}
 
 	.extras p {
+		margin-bottom: 0 !important;
+		padding: 1vh 2vw !important;
 		font-size: 0.8rem;
 	}
 }
@@ -327,7 +330,7 @@ main {
 	justify-content: center;
 	width: 100%;
 	height: fit-content;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-style: italic;
 	color: var(--primary);
 	opacity: 0.75;
@@ -511,7 +514,7 @@ main {
 
 @media (max-width: 950px) {
 	.services-container {
-		padding: 5vh 1vw;
+		padding: 3vh 1vw;
 		position: relative;
 		width: 90vw;
 	}
@@ -544,7 +547,7 @@ main {
 		width: fit-content;
 		height: fit-content;
 		align-items: center;
-		font-size: 1.65rem;
+		font-size: 1.25rem;
 	}
 
 	.services-container .srvc-title::before {
@@ -596,19 +599,19 @@ main {
 	}
 
 	.srvc-text {
-		font-size: 1rem;
-		line-height: 2.5vh;
+		font-size: 0.8rem;
+		line-height: 2.25vh;
 	}
 }
 
 .seasonal {
 	margin-top: 20vh;
-	padding: 4vh 5vw 8vh 5vw;
+	padding: 4vh 5vw 5vh 5vw;
 	display: block !important;
 	width: 80% !important;
 	min-width: 350px;
 	max-width: 728px !important;
-	height: fit-content !important;
+	height: 35vh !important;
 	text-align: center;
 	background: var(--white);
 	color: var(--primary-800);
@@ -623,7 +626,7 @@ main {
 .seasonal p {
 	margin-top: 2vh;
 	font-size: 1rem;
-	line-height: 3vh;
+	line-height: 2.75vh;
 	opacity: 0.65;
 }
 
@@ -631,6 +634,7 @@ main {
 	.seasonal {
 		margin-top: 8vh;
 		width: 86% !important;
+		height: 38vh !important;
 	}
 
 	.seasonal h2 {
@@ -638,8 +642,10 @@ main {
 	}
 
 	.seasonal p {
-		margin-top: 2.6vh;
-		font-size: 0.8rem;
+		margin-top: 2vh;
+		padding-bottom: 2vh;
+		font-size: 0.9rem;
+		line-height: 2rem;
 	}
 }
 

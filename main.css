@@ -256,6 +256,7 @@ and switched to display: none. Menu button becomes visible.*/
 	z-index: 1;
 	position: relative;
 	width: 98%;
+	max-width: 1476px;
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
@@ -506,8 +507,10 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Begin Gallery Page*/
 .gallery-container {
+	margin-left: auto;
+	margin-right: auto;
 	padding-top: 40vh;
-	max-width: 100%;
+	max-width: 1476px;
 	height: 100%;
 }
 
@@ -665,9 +668,11 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Begin About Me preview*/
 .about-container {
+	margin-left: auto;
+	margin-right: auto;
 	padding-top: 10vh;
 	padding-bottom: 18vh;
-	max-width: 100%;
+	max-width: 1476px;
 	height: auto;
 }
 
@@ -678,7 +683,7 @@ and switched to display: none. Menu button becomes visible.*/
 	padding: 8vh 2vw;
 	display: flex;
 	flex: 0 1 auto;
-	width: 95vw;
+	width: 95%;
 	height: auto;
 	border-right: 0.5px solid var(--primary-800);
 }
@@ -704,7 +709,7 @@ and switched to display: none. Menu button becomes visible.*/
 	position: relative;
 	padding: 5vh 3vw 5vh 5vw;
 	height: 75vh;
-	width: 100%;
+	width: auto;
 	border-right: 0.5px solid var(--primary-800);
 }
 
@@ -727,7 +732,7 @@ h3 {
 .right-container p {
 	padding-top: 6vh;
 	padding-right: 3vw;
-	font-size: 1.2vw;
+	font-size: 1.2rem;
 	line-height: 2.7vh;
 	color: var(--primary-800);
 	opacity: 0.45;
