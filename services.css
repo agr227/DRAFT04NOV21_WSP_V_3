@@ -36,7 +36,10 @@ header {
 
 /*Begin nav bar styling*/
 .nav-container {
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -44,6 +47,7 @@ header {
 	padding: 2vh 5vw;
 	display: flex;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -60,7 +64,7 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	width: fit-content;
-	font-size: 2.5vw;
+	height: auto;
 }
 
 .nav-container ul li .link,
@@ -68,7 +72,8 @@ header {
 	position: relative;
 	padding: 1px;
 	text-decoration: none;
-	font-size: 1.75vw;
+	font-size: 1.25rem;
+	opacity: 0.85;
 	color: var(--primary-800);
 	cursor: url(images/Cursor.svg), default;
 }
@@ -79,16 +84,19 @@ header {
 
 .nav-container .img-container {
 	display: flex;
+	aspect-ratio: 1;
 	width: 25vw;
+	max-width: 400px;
 	height: auto;
-	overflow: visible;
+	max-height: 400px;
+	overflow: auto;
 	cursor: url(images/Cursor.svg), default;
 }
 
 a .img-container img {
 	width: 100%;
-	height: 100%;
-	object-fit: fill;
+	height: auto;
+	object-fit: cover;
 }
 
 /*Nav link hover animation. Creates a thin background color layer located at the bottom of the link. Upon hover/focus
@@ -224,7 +232,7 @@ and switched to display: none. Menu button becomes visible.*/
 	}
 
 	.nav-container ul li a {
-		font-size: 2vw !important;
+		font-size: 1rem !important;
 	}
 
 	.nav-container ul li:nth-child(3) {
@@ -253,24 +261,21 @@ main {
 	margin-top: 10vh;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 3vh 4vw 1vh 4vw;
 	position: relative;
 	height: auto;
-	width: 54vw;
-	max-width: 699px;
+	width: 58vw;
+	max-width: 850px;
 	text-align: center;
 	color: var(--primary-800);
-	opacity: 0.6;
-	box-shadow: rgba(167, 139, 74, 0.5) 0px -40px 30px -35px,
-		rgba(167, 139, 74, 0.5) 0px 40px 30px -35px;
+	border-bottom: 5px solid white;
+	opacity: 0.7;
+	box-shadow: rgba(167, 139, 74, 0.5) 0px 40px 30px -35px;
 }
 
 .extras p {
-	margin-bottom: 1vh;
-	font-size: 0.8rem;
-}
-
-.extras p:nth-child(1) {
-	padding-top: 2vh;
+	margin-bottom: 1.5vh;
+	font-size: 0.9rem;
 }
 
 .extras p:nth-child(3) {
@@ -278,42 +283,39 @@ main {
 	padding-bottom: 2vh;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.extras {
 		width: 75vw;
 	}
 
 	.extras p {
-		font-size: 1.75vw;
+		font-size: 0.8rem;
 	}
 }
 
 /*Services Container and internal styling*/
 .services-container {
-	margin-top: 6vh;
-	margin-bottom: 11vh;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 8vh 5vw;
+	margin: 18vh auto;
+	padding: 8vh 1.5vw;
 	position: relative;
-	width: 89vw;
+	width: 80vw;
 	max-width: 1300px;
-	border-top: 0.5px solid var(--primary-800);
-	border-right: 0.5px solid var(--primary-800);
-	box-shadow: rgba(167, 139, 74, 0.35) 45px 0 30px -35px;
+	border-left: 0.5px solid rgba(21, 18, 10, 0.256);
+	border-right: 0.5px solid rgba(21, 18, 10, 0.256);
+	box-shadow: rgba(50, 50, 93, 0.25) -42px 0px 30px -40px,
+		rgba(50, 50, 93, 0.25) 42px 0px 30px -40px;
 }
 
 .services-container::after {
 	content: "";
 	position: absolute;
 	display: block;
-	top: 1%;
-	left: 9%;
-	height: 97%;
-	width: 95%;
-	border-top: 0.5px solid var(--primary-800);
-	box-shadow: rgba(167, 139, 74, 0.35) 0px -40px 30px -35px;
-	border-right: 0.5px solid var(--primary-800);
+	top: 0.45%;
+	left: -1.5%;
+	height: 99%;
+	width: 103%;
+	border-top: 0.5px solid rgba(21, 18, 10, 0.256);
+	border-bottom: 0.5px solid rgba(21, 18, 10, 0.256);
 	z-index: -1;
 }
 
@@ -325,10 +327,10 @@ main {
 	justify-content: center;
 	width: 100%;
 	height: fit-content;
-	font-size: 2vh;
+	font-size: 1.5rem;
 	font-style: italic;
 	color: var(--primary);
-	opacity: 0.65;
+	opacity: 0.75;
 	cursor: url(images/Cursor.svg), default;
 }
 
@@ -341,7 +343,7 @@ main {
 	justify-content: space-between;
 	width: 100%;
 	max-width: 1100px;
-	height: 40vh;
+	height: 45vh;
 }
 
 .services-container > div:nth-child(odd) {
@@ -492,12 +494,12 @@ main {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	font-size: 1.5vh;
+	font-size: 1rem;
 	text-align: center;
 	line-height: 3.5vh;
 	word-spacing: 0.3vw;
 	color: var(--primary-800);
-	opacity: 0.4;
+	opacity: 0.65;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
@@ -507,18 +509,15 @@ main {
 	width: 75%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
 	.services-container {
+		padding: 5vh 1vw;
 		position: relative;
-		width: 80vw;
-		box-shadow: rgba(167, 139, 74, 0.35) 45px 0 30px -35px;
-	}
-
-	.services-container::after {
-		box-shadow: rgba(167, 139, 74, 0.35) 15px -40px 30px -35px;
+		width: 90vw;
 	}
 
 	.services-container > div {
+		margin-bottom: 10vh;
 		margin-left: auto;
 		margin-right: auto;
 		flex-direction: column-reverse;
@@ -536,7 +535,7 @@ main {
 	}
 
 	.services-container .srvc-title {
-		margin-top: 2vh;
+		margin-top: 3vh;
 		margin-bottom: 0;
 		margin-left: auto;
 		margin-right: auto;
@@ -545,7 +544,7 @@ main {
 		width: fit-content;
 		height: fit-content;
 		align-items: center;
-		font-size: 3vw;
+		font-size: 1.65rem;
 	}
 
 	.services-container .srvc-title::before {
@@ -584,7 +583,7 @@ main {
 	}
 
 	.services-container div:nth-child(odd) > .srvc-img {
-		width: 90%;
+		width: 80%;
 	}
 
 	.services-container div:nth-child(even) .srvc-img {
@@ -597,23 +596,23 @@ main {
 	}
 
 	.srvc-text {
-		font-size: 1.75vw;
-		line-height: 2.25vh;
+		font-size: 1rem;
+		line-height: 2.5vh;
 	}
 }
 
 .seasonal {
-	margin-top: 18vh;
+	margin-top: 20vh;
 	padding: 4vh 5vw 8vh 5vw;
 	display: block !important;
-	width: 75% !important;
+	width: 80% !important;
 	min-width: 350px;
 	max-width: 728px !important;
 	height: fit-content !important;
+	text-align: center;
 	background: var(--white);
 	color: var(--primary-800);
-	box-shadow: rgba(21, 18, 10, 0.5) 0px -30px 40px -35px,
-		rgba(21, 18, 10, 0.5) 0px 30px 40px -35px;
+	box-shadow: rgba(167, 139, 74, 0.5) -5px 35px 50px -25px;
 }
 
 .seasonal h2 {
@@ -625,22 +624,22 @@ main {
 	margin-top: 2vh;
 	font-size: 1rem;
 	line-height: 3vh;
-	opacity: 0.5;
+	opacity: 0.65;
 }
 
 @media (max-width: 700px) {
 	.seasonal {
 		margin-top: 8vh;
+		width: 86% !important;
 	}
 
 	.seasonal h2 {
-		font-size: 20px;
+		font-size: 1.3rem;
 	}
 
 	.seasonal p {
 		margin-top: 2.6vh;
 		font-size: 0.8rem;
-		line-height: 2.3vh;
 	}
 }
 

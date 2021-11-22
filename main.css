@@ -36,7 +36,10 @@ header {
 
 /*Begin nav bar styling*/
 .nav-container {
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -44,6 +47,7 @@ header {
 	padding: 2vh 5vw;
 	display: flex;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -60,7 +64,7 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	width: fit-content;
-	font-size: 2.5vw;
+	height: auto;
 }
 
 .nav-container ul li .link,
@@ -68,27 +72,31 @@ header {
 	position: relative;
 	padding: 1px;
 	text-decoration: none;
-	font-size: 1.75vw;
+	font-size: 1.25rem;
+	opacity: 0.85;
 	color: var(--primary-800);
 	cursor: url(images/Cursor.svg), default;
 }
 
 /* .nav-container ul li .active-link {
 	cursor: default !important;
-} Only needed for Secondary Pages, when an active link is permanently styled*/
+} */
 
 .nav-container .img-container {
 	display: flex;
+	aspect-ratio: 1;
 	width: 25vw;
+	max-width: 400px;
 	height: auto;
-	overflow: visible;
+	max-height: 400px;
+	overflow: auto;
 	cursor: url(images/Cursor.svg), default;
 }
 
 a .img-container img {
 	width: 100%;
-	height: 100%;
-	object-fit: fill;
+	height: auto;
+	object-fit: cover;
 }
 
 /*Nav link hover animation. Creates a thin background color layer located at the bottom of the link. Upon hover/focus
@@ -226,7 +234,7 @@ and switched to display: none. Menu button becomes visible.*/
 	}
 
 	.nav-container ul li a {
-		font-size: 2vw !important;
+		font-size: 1rem !important;
 	}
 
 	.nav-container ul li:nth-child(3) {
@@ -247,24 +255,25 @@ and switched to display: none. Menu button becomes visible.*/
 .home-container {
 	z-index: 1;
 	position: relative;
-	width: 100%;
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
 	height: auto;
-	padding: 1.5vh 0;
-	border-bottom: 0.5px solid var(--white);
+	padding: 1.5vh 0 1vh 0;
 	box-shadow: #a78b4a59 0px 40px 60px -40px, #a78b4a26 0px 60px 60px -40px;
 }
 
 .slider-container {
 	display: flex;
 	width: 100%;
-	height: 70vh;
+	height: 60vh;
 }
 
 .img-1,
 .img-2,
 .img-3 {
 	z-index: 0;
-	margin-inline: 0.25vw;
+	margin-inline: 0.35%;
 	position: relative;
 	display: flex;
 	height: 100%;
@@ -450,13 +459,13 @@ and switched to display: none. Menu button becomes visible.*/
 /*Sizing home images from desktop to mobile. Switching from flex to vertical stack.*/
 @media (max-width: 1250px) {
 	.slider-container {
-		height: 60vh;
+		height: 50vh;
 	}
 }
 
 @media (max-width: 1000px) {
 	.slider-container {
-		height: 50vh;
+		height: 40vh;
 	}
 }
 
@@ -497,42 +506,24 @@ and switched to display: none. Menu button becomes visible.*/
 
 /*Begin Gallery Page*/
 .gallery-container {
-	padding-top: 18vh;
+	padding-top: 40vh;
 	max-width: 100%;
 	height: 100%;
 }
 
 .gallery-content {
-	margin-top: 22vh;
 	background-image: linear-gradient(
-		var(--white),
-		#a78b4a1a,
-		#a78b4a5e,
-		var(--primary),
-		#a78b4a5e,
-		#a78b4a40
+		rgb(255, 255, 255),
+		rgba(167, 139, 74, 0.01),
+		rgba(167, 139, 74, 0.369),
+		rgb(167, 139, 74, 0.46),
+		rgba(167, 139, 74, 0.369),
+		rgba(167, 139, 74, 0.171),
+		rgb(255, 255, 255)
 	);
 	width: 100%;
 	height: 100%;
 }
-
-/*First attention grabbing headline*/
-/* .random-text-1 {
-	position: relative;
-	padding-left: 3%;
-	width: fit-content;
-	height: auto;
-	border-bottom: 1px solid var(--primary-800);
-	opacity: 0.5;
-} */
-
-/* .random-text-1 h1 {
-	padding-right: 1%;
-	padding-bottom: 0.5vh;
-	font-style: italic;
-	font-size: 1.5rem;
-	color: var(--primary-800);
-} */
 
 /*Grid layout and design. 21 grid areas. 1 per picture. I used a grid generator to help me place and design the layout to match the mix of landscapes and portraits. Had to break it down into very small fractions to avoid obvious ratio distortion. Very pleased with the outcome, but would like to keep adding to the UI/UX of this massive piece of the landing page.*/
 .gp1 {
@@ -636,15 +627,15 @@ and switched to display: none. Menu button becomes visible.*/
 }
 
 .gallery-grid {
-	padding: 8vh 5vw;
+	padding: 0vh 3vw;
 	width: 100%;
 	height: auto;
 	max-height: 5000vh;
 	display: grid;
 	grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
 	grid-template-rows: 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.5fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 1.25fr 0.25fr 0.25fr 2fr 0.25fr 0.25fr 1.5fr 0.25fr;
-	column-gap: 0.6vw;
-	row-gap: 0.6vh;
+	column-gap: 0.65vw;
+	row-gap: 0.65vh;
 	grid-template-areas:
 		"gp1 gp1 gp1 gp1 gp1 gp2 gp2 gp2 gp2 gp2 gp2 gp2 gp2 gp3 gp3 gp3 gp3 gp3"
 		"gp1 gp1 gp1 gp1 gp1 gp2 gp2 gp2 gp2 gp2 gp2 gp2 gp2 gp3 gp3 gp3 gp3 gp3"
@@ -678,7 +669,6 @@ and switched to display: none. Menu button becomes visible.*/
 	padding-bottom: 18vh;
 	max-width: 100%;
 	height: auto;
-	background-image: linear-gradient(#a78b4a40, white 22%, white 100%);
 }
 
 .inner-about {
@@ -690,21 +680,20 @@ and switched to display: none. Menu button becomes visible.*/
 	flex: 0 1 auto;
 	width: 95vw;
 	height: auto;
-	border-right: 0.5px solid var(--black);
+	border-right: 0.5px solid var(--primary-800);
 }
 
 /*Professional Headshot*/
 .left-container {
 	position: relative;
 	padding: 0 8vw 0 2vw;
-	height: 75vh;
+	height: 65vh;
 	width: 100%;
 	max-width: 600px;
 	background-image: url(images/Alex_1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	filter: saturate(100%);
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px,
 		rgba(0, 0, 0, 0.2) 0px 2px 4px 0px,
 		rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -716,7 +705,7 @@ and switched to display: none. Menu button becomes visible.*/
 	padding: 5vh 3vw 5vh 5vw;
 	height: 75vh;
 	width: 100%;
-	border-right: 0.5px solid var(--black);
+	border-right: 0.5px solid var(--primary-800);
 }
 
 .right-container .rt-container {
@@ -793,12 +782,12 @@ h3 {
 /*Media Query to reformat the about me section during resizing and smaller screens*/
 @media (max-width: 1000px) {
 	.about-container {
-		padding: 0 3vw;
+		padding: 12vh 3vw;
 		padding-bottom: 10vh !important;
 	}
 
 	.inner-about {
-		padding: 2vh 0 !important;
+		padding: 2vh 5vw !important;
 		position: relative;
 		display: block;
 		width: 93vw !important;
@@ -811,13 +800,13 @@ h3 {
 		margin-bottom: 3vh;
 		width: auto !important;
 		height: 50vh !important;
-		min-height: 650px;
+		min-height: 500px;
 	}
 
 	.right-container {
-		margin-left: 8vw !important;
+		margin-left: auto !important;
 		margin-right: auto !important;
-		padding: 0 2% !important;
+		padding: 0 2vw !important;
 		display: flex;
 		flex-direction: row-reverse;
 		width: 80vw !important;

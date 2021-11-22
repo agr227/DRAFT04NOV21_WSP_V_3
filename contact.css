@@ -36,7 +36,10 @@ header {
 
 /*Begin nav bar styling*/
 .nav-container {
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -44,6 +47,7 @@ header {
 	padding: 2vh 5vw;
 	display: flex;
 	width: 100%;
+	max-width: 1600px;
 	height: auto;
 }
 
@@ -60,7 +64,7 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	width: fit-content;
-	font-size: 2.5vw;
+	height: auto;
 }
 
 .nav-container ul li .link,
@@ -68,7 +72,8 @@ header {
 	position: relative;
 	padding: 1px;
 	text-decoration: none;
-	font-size: 1.75vw;
+	font-size: 1.25rem;
+	opacity: 0.85;
 	color: var(--primary-800);
 	cursor: url(images/Cursor.svg), default;
 }
@@ -79,16 +84,19 @@ header {
 
 .nav-container .img-container {
 	display: flex;
+	aspect-ratio: 1;
 	width: 25vw;
+	max-width: 400px;
 	height: auto;
-	overflow: visible;
+	max-height: 400px;
+	overflow: auto;
 	cursor: url(images/Cursor.svg), default;
 }
 
 a .img-container img {
 	width: 100%;
-	height: 100%;
-	object-fit: fill;
+	height: auto;
+	object-fit: cover;
 }
 
 /*Nav link hover animation. Creates a thin background color layer located at the bottom of the link. Upon hover/focus
@@ -224,7 +232,7 @@ and switched to display: none. Menu button becomes visible.*/
 	}
 
 	.nav-container ul li a {
-		font-size: 2vw !important;
+		font-size: 1rem !important;
 	}
 
 	.nav-container ul li:nth-child(3) {
@@ -242,73 +250,81 @@ and switched to display: none. Menu button becomes visible.*/
 /*End Header design and style*/
 
 /*Begin Main design and style*/
-main {
-	margin: 5vh auto 50vh auto;
-	padding: 3vh 1vw 0 5vw;
-	width: 70vw;
-	height: 95%;
-	border-top: 0.5px solid var(--primary-800);
-	border-right: 0.5px solid var(--primary-800);
+.container {
+	display: block;
+	margin: 8vh auto 30vh auto;
+	padding: 5vh 3vw;
+	position: relative;
+	width: 65vw;
+	max-width: 1000px;
+	height: 100%;
+	border-left: 0.5px solid rgba(21, 18, 10, 0.256);
+	border-right: 0.5px solid rgba(21, 18, 10, 0.256);
+	box-shadow: rgba(50, 50, 93, 0.25) -42px 0px 30px -40px,
+		rgba(50, 50, 93, 0.25) 42px 0px 30px -40px;
+}
+
+.container::after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 0.5%;
+	left: -1.5%;
+	height: 99%;
+	width: 103%;
+	border-top: 0.5px solid rgba(21, 18, 10, 0.256);
+	border-bottom: 0.5px solid rgba(21, 18, 10, 0.256);
+	z-index: -1;
 }
 
 h1 {
 	margin-bottom: 5vh;
 	padding: 0.2vh 0 0 0.2vw;
 	width: fit-content;
+	height: auto;
 	color: var(--primary-800);
 	border-top: 0.5px solid var(--primary);
 	border-left: 0.5px solid var(--primary);
-}
-
-.container {
-	margin-bottom: 10vh;
-	margin-right: 2vw;
-	padding: 5vh 5vw 5vh 0;
-	width: 95%;
-	height: 95%;
-	font-size: 0.95rem;
-	line-height: 2vh;
-	text-align: left;
-	color: var(--primary-800);
-
-	box-shadow: rgba(167, 139, 74, 0.5) 0px -40px 25px -30px,
-		rgba(167, 139, 74, 0.5) 40px 0px 25px -30px;
-	opacity: 0.5;
 }
 
 .location-top,
 .contact,
 .message {
 	margin-left: 1.5vw;
+	width: 75%;
+	font-size: 1.1rem;
+	line-height: 2.5vh;
+	text-align: left;
+	color: var(--primary-800);
+	opacity: 0.85;
 }
 
 .location-top {
 	margin-bottom: 5vh;
-	padding-bottom: 3vh;
-	padding-right: 6vw;
-	box-shadow: rgba(167, 139, 74, 0.5) 0px 40px 25px -35px;
+	padding: 0 3vw 2vh 1.5vw;
+	box-shadow: rgba(167, 139, 74, 0.35) -10px 20px 25px -13px;
 }
 
 .location-top h2 {
 	margin-bottom: 3vh;
-	padding: 0.2vh 0.2vw;
 	width: fit-content;
 }
 
 .location-top a {
+	display: block;
+	margin-left: 2vw;
 	text-decoration: none;
 	font-style: italic;
 	color: var(--primary-800);
 	cursor: url(images/Cursor.svg), default;
-	font-weight: 500;
 }
 
 .location-top a .add {
-	margin: 2vh 2vw 3vh 2vw;
-	padding-top: 0.5vh;
-	padding-left: 0.5vw;
+	margin: 2vh 0vw;
+	padding: 0.25vh 0.25vw;
 	position: relative;
 	width: fit-content;
+	opacity: 0.65;
 	will-change: opacity;
 }
 
@@ -323,7 +339,7 @@ h1 {
 .location-top a .add:hover,
 .location-top a .add:focus,
 .location-top a .add:focus-within {
-	opacity: 0.75;
+	opacity: initial;
 }
 
 .location-top a .add::before,
@@ -333,18 +349,19 @@ h1 {
 	display: block;
 	top: 0;
 	left: 0;
-	background-image: linear-gradient(
-		var(--primary),
-		var(--primary) 95%,
-		var(--white) 100%
-	);
 	transition-delay: 0.02s;
 	will-change: transform;
 }
 
 .location-top a .add::before {
 	width: 100%;
-	height: 0.5px;
+	height: 1px;
+	background-image: linear-gradient(
+		to right,
+		var(--primary),
+		var(--primary) 90%,
+		var(--white) 100%
+	);
 	transform: scaleX(0);
 	transition: transform 0.2s ease-in-out 1ms;
 	transform-origin: left;
@@ -357,8 +374,13 @@ h1 {
 }
 
 .location-top a .add::after {
-	width: 0.5px;
+	width: 1px;
 	height: 100%;
+	background-image: linear-gradient(
+		var(--primary),
+		var(--primary) 90%,
+		var(--white) 100%
+	);
 	transform: scaleY(0);
 	transition: transform 0.2s ease-in-out 1ms;
 	transform-origin: top;
@@ -371,11 +393,14 @@ h1 {
 }
 
 .bottom-cont {
-	box-shadow: rgba(167, 139, 74, 0.5) 0px -40px 25px -35px;
+	margin-left: 1.5vw;
+	width: 85%;
+	box-shadow: rgba(167, 139, 74, 0.35) -10px -16px 25px -13px;
 }
 
 .contact {
-	padding: 3vh 2vw 3vh 0;
+	width: 100%;
+	padding: 3vh 2.5vw 3vh 1vw;
 }
 
 .contact .insta,
@@ -387,8 +412,6 @@ h1 {
 	position: relative;
 	display: flex;
 	width: 100%;
-	color: var(--primary-800);
-	font-size: 1rem;
 	opacity: 0.75;
 }
 
@@ -397,12 +420,12 @@ h1 {
 .contact .pin a,
 .contact .linked a,
 .contact .email a {
-	width: fit-content;
+	position: relative;
+	width: auto;
 	height: fit-content;
 	color: var(--black);
 	font-weight: 800;
 	text-decoration: none;
-	opacity: 1;
 	cursor: url(images/Cursor.svg), default;
 }
 
@@ -435,11 +458,13 @@ h1 {
 	position: absolute;
 	display: block;
 	left: 0;
+	bottom: 0;
 	height: 1px;
 	background-image: linear-gradient(
-		var(--white),
-		var(--primary) 10%,
-		var(--primary) 100%
+		to right,
+		var(--primary),
+		var(--primary) 90%,
+		var(--white)
 	);
 	transform: scaleX(0);
 	transition: transform 0.2s ease-in-out 0.2s;
@@ -449,27 +474,22 @@ h1 {
 }
 
 .contact .insta a::before {
-	bottom: 0;
 	width: 8ch;
 }
 
 .contact .face a::before {
-	bottom: 0;
 	width: 7.5ch;
 }
 
 .contact .pin a::before {
-	bottom: 0;
 	width: 6.5ch;
 }
 
 .contact .linked a::before {
-	top: 50%;
 	width: 7ch;
 }
 
 .contact .email a::before {
-	bottom: 0;
 	width: 4.75ch;
 }
 
@@ -501,58 +521,53 @@ h1 {
 }
 
 .message {
-	padding: 0 5vw 15vh 0;
+	padding-left: 1vw;
+	padding-bottom: 8vh;
+	width: 75%;
 	color: var(--primary-800);
 	text-align: left;
-	font-size: 0.85rem;
-	line-height: 2vh;
-}
-
-.message p {
+	font-size: 1rem;
+	line-height: 2.5vh;
 	opacity: 0.85;
 }
 
 .message p:nth-of-type(1) {
-	margin-bottom: 2vh;
+	margin-bottom: 1.5vh;
 }
 
 @media (max-width: 800px) {
-	main {
-		margin: 10vh 8vw 50vh 12vw;
-		width: 76vw;
-		height: 95%;
-	}
-
-	main .container *,
-	main .contact *,
-	main .message * {
-		font-size: 0.85rem;
+	.container {
+		margin: 1vh auto 20vh auto !important;
+		padding: 2vh 3vw 5vh 3vw;
+		width: 87vw;
+		padding-left: 5vw;
 	}
 
 	h1 {
-		padding: 0.25vh 0 0 0.75vw !important;
-		font-size: 1.5rem;
+		margin-bottom: 5vh;
+		padding: 0.2vh 0 0 0.5vw;
 	}
 
-	.container {
-		margin-bottom: 0vh !important;
-		padding-bottom: 0vh !important;
-		height: 99% !important;
+	.location-top {
+		padding: 2vh 4vw;
+		width: 80%;
 	}
 
-	.contact .insta a::before,
-	.contact .face a::before,
-	.contact .email a::before {
-		bottom: 10% !important;
+	.location-top:not(h2) {
+		font-size: 0.95rem;
 	}
 
-	.contact .pin a::before,
-	.contact .linked a::before {
-		top: 30% !important;
+	.bottom-cont {
+		padding: 0.5vh 1.5vw !important;
+		width: 90%;
 	}
 
 	.message {
-		padding-bottom: 10vh !important;
+		margin-left: auto;
+		margin-right: auto;
+		width: 85%;
+		font-size: 0.85rem;
+		padding-bottom: 5vh;
 	}
 }
 /*End Main design and style*/
