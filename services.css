@@ -544,7 +544,7 @@ main {
 		margin-right: auto;
 		padding-bottom: 0;
 		position: relative;
-		width: 100%;
+		width: fit-content;
 		height: fit-content;
 		align-items: center;
 		font-size: 1.25rem;
@@ -634,7 +634,7 @@ main {
 	.seasonal {
 		margin-top: 8vh;
 		width: 86% !important;
-		height: 42vh !important;
+		height: 45vh !important;
 	}
 
 	.seasonal h2 {
