@@ -412,7 +412,6 @@ h1 {
 	position: relative;
 	display: flex;
 	width: 100%;
-	opacity: 0.75;
 }
 
 .contact .insta a,
@@ -426,7 +425,9 @@ h1 {
 	color: var(--black);
 	font-weight: 800;
 	text-decoration: none;
+	opacity: 0.75;
 	cursor: url(images/Cursor.svg), default;
+	will-change: opacity;
 }
 
 .insta a {
